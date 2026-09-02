@@ -1,0 +1,955 @@
+/**
+ * Echelon Labs storefront — light theme, scoped entirely under `.sf` so it
+ * cannot leak into the dark integration UI on `/` and `/pay/[id]`, and so it
+ * outranks the bare `input` / `button` / `label` / `a` rules in globals.css.
+ */
+
+.sf {
+  --sf-navy: #1d3c96;
+  --sf-navy-deep: #16307a;
+  --sf-bg: #f4f5f7;
+  --sf-surface: #ffffff;
+  --sf-line: #e7e9ee;
+  --sf-line-soft: #eef0f4;
+  --sf-ink: #0f1729;
+  --sf-ink-soft: #6b7280;
+  --sf-field: #f7f8fa;
+  --sf-placeholder: #9aa1ad;
+  --sf-teal: #12867c;
+  --sf-teal-bg: #eefbf8;
+  --sf-teal-line: #cdeae5;
+  --sf-badge: #17b3a3;
+  --sf-red: #c2453f;
+  --sf-red-bg: #fef5f5;
+  --sf-red-line: #f6dada;
+
+  min-height: 100vh;
+  background: var(--sf-bg);
+  color: var(--sf-ink);
+  font-family: var(--sf-font), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+.sf *,
+.sf *::before,
+.sf *::after {
+  box-sizing: border-box;
+}
+
+.sf a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sf svg {
+  flex: none;
+}
+
+/* ---------------------------------------------------------------- top bar */
+
+.sf-notice {
+  background: var(--sf-navy);
+  color: #fff;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------------- header */
+
+.sf-header {
+  border-bottom: 1px solid var(--sf-line);
+  background: var(--sf-bg);
+}
+
+.sf-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sf-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: none;
+}
+
+.sf-brand-mark {
+  width: 40px;
+  height: 40px;
+}
+
+.sf-wordmark {
+  font-size: 18.5px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.sf-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.sf-nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1c2434;
+  white-space: nowrap;
+}
+
+.sf-nav-link:hover {
+  color: var(--sf-navy);
+}
+
+.sf-nav-link.with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sf-nav-link.with-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sf-header-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: none;
+}
+
+.sf-ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ccd2dc;
+  background: var(--sf-surface);
+  border-radius: 9px;
+  padding: 9px 13px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1c2434;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.sf-ghost-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sf-ghost-btn:hover {
+  border-color: var(--sf-navy);
+  color: var(--sf-navy);
+}
+
+.sf-locale {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sf-locale svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sf-flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.sf-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #1c2434;
+  cursor: pointer;
+}
+
+.sf-icon-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.sf-icon-btn:hover {
+  color: var(--sf-navy);
+}
+
+.sf-cart-count {
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--sf-badge);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* -------------------------------------------------------------- page head */
+
+.sf-main {
+  flex: 1;
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 38px 20px 52px;
+}
+
+.sf-page-head {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.sf-back {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--sf-ink);
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.sf-back svg {
+  width: 23px;
+  height: 23px;
+}
+
+.sf-back:hover {
+  color: var(--sf-navy);
+}
+
+.sf-page-head h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sf-page-head p {
+  margin: 3px 0 0;
+  font-size: 14px;
+  color: var(--sf-ink-soft);
+}
+
+/* ------------------------------------------------------------------ steps */
+
+.sf-steps {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 24px 0 26px;
+  font-size: 13.5px;
+  color: #8b919d;
+  flex-wrap: wrap;
+}
+
+.sf-steps .sep {
+  color: #b9bec8;
+}
+
+.sf-steps .current {
+  color: var(--sf-navy);
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------------- grid */
+
+.sf-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 372px;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .sf-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.sf-card {
+  background: var(--sf-surface);
+  border: 1px solid var(--sf-line);
+  border-radius: 16px;
+  padding: 26px 26px 24px;
+  box-shadow: 0 1px 2px rgba(15, 23, 41, 0.03);
+}
+
+.sf-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  font-size: 17.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sf-card-title svg {
+  width: 19px;
+  height: 19px;
+  color: var(--sf-navy);
+}
+
+/* ------------------------------------------------------------------ forms */
+
+.sf-field + .sf-field {
+  margin-top: 20px;
+}
+
+.sf label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 9px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sf-ink);
+}
+
+.sf label svg {
+  width: 17px;
+  height: 17px;
+  color: #7c8494;
+}
+
+.sf input,
+.sf textarea {
+  width: 100%;
+  background: var(--sf-field);
+  border: 1px solid var(--sf-line);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--sf-ink);
+  display: block;
+}
+
+.sf textarea {
+  min-height: 104px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.sf input::placeholder,
+.sf textarea::placeholder {
+  color: var(--sf-placeholder);
+}
+
+.sf input:focus,
+.sf textarea:focus {
+  outline: none;
+  border-color: var(--sf-navy);
+  background: var(--sf-surface);
+  box-shadow: 0 0 0 3px rgba(29, 60, 150, 0.1);
+}
+
+.sf-field-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 560px) {
+  .sf-field-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sf-email-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 14px 15px;
+  background: var(--sf-field);
+  border: 1px solid var(--sf-line-soft);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--sf-ink-soft);
+  flex-wrap: wrap;
+}
+
+.sf-email-note svg {
+  width: 17px;
+  height: 17px;
+  color: #7c8494;
+}
+
+.sf-email-note strong {
+  color: var(--sf-ink);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------- order summary */
+
+.sf-line-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.sf-line-item-thumb {
+  width: 58px;
+  height: 58px;
+  border-radius: 8px;
+  flex: none;
+}
+
+.sf-line-item-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.sf-line-item-spec {
+  font-family: var(--sf-mono), ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  color: var(--sf-ink-soft);
+  margin-top: 2px;
+}
+
+.sf-line-item-price {
+  font-size: 14px;
+  margin-top: 7px;
+}
+
+.sf-line-item-price .amt {
+  font-family: var(--sf-mono), ui-monospace, Menlo, monospace;
+}
+
+.sf-rule {
+  border: 0;
+  border-top: 1px solid var(--sf-line-soft);
+  margin: 20px 0;
+}
+
+.sf-discount-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--sf-ink-soft);
+  margin-bottom: 10px;
+}
+
+.sf-discount-label svg {
+  width: 17px;
+  height: 17px;
+  color: #7c8494;
+}
+
+.sf-discount-row {
+  display: flex;
+  gap: 10px;
+}
+
+.sf-discount-row input {
+  font-family: var(--sf-mono), ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 12px 13px;
+}
+
+.sf-discount-row input::placeholder {
+  text-transform: uppercase;
+}
+
+.sf-apply-btn {
+  flex: none;
+  border: 1px solid var(--sf-line);
+  background: var(--sf-field);
+  border-radius: 10px;
+  padding: 0 17px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sf-ink-soft);
+  cursor: pointer;
+}
+
+.sf-apply-btn:enabled:hover {
+  border-color: var(--sf-navy);
+  color: var(--sf-navy);
+}
+
+.sf-apply-btn:disabled {
+  cursor: not-allowed;
+  color: var(--sf-placeholder);
+}
+
+.sf-total-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--sf-ink);
+}
+
+.sf-total-row + .sf-total-row {
+  margin-top: 11px;
+}
+
+.sf-total-row .val {
+  font-family: var(--sf-mono), ui-monospace, Menlo, monospace;
+}
+
+/* Non-numeric values ("Free") stay in the sans, as in the reference. */
+.sf-total-row .val.word {
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.sf-total-row.grand {
+  margin-top: 18px;
+}
+
+.sf-total-row.grand .lbl {
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.sf-total-row.grand .val {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--sf-navy);
+}
+
+/* ---------------------------------------------------------------- actions */
+
+.sf-pay-btn {
+  width: 100%;
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  border: 1px solid var(--sf-navy);
+  background: var(--sf-navy);
+  color: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font: inherit;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sf-pay-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.sf-pay-btn:enabled:hover {
+  background: var(--sf-navy-deep);
+  border-color: var(--sf-navy-deep);
+}
+
+.sf-pay-btn:disabled {
+  opacity: 0.62;
+  cursor: not-allowed;
+}
+
+/* Centred single-action page (the home screen). */
+.sf-centered {
+  align-items: center;
+  justify-content: center;
+}
+
+.sf-standalone-btn {
+  width: auto;
+  min-width: 210px;
+  margin-top: 0;
+  text-decoration: none;
+}
+
+/* Outranks the `.sf a { color: inherit }` reset, which would otherwise repaint
+   the label in the body ink. */
+.sf a.sf-standalone-btn {
+  color: #fff;
+}
+
+.sf-secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--sf-ink-soft);
+}
+
+.sf-secure svg {
+  width: 15px;
+  height: 15px;
+}
+
+.sf-help {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 18px;
+  padding: 13px 14px;
+  border: 1px solid var(--sf-teal-line);
+  background: var(--sf-teal-bg);
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--sf-teal);
+  text-align: center;
+}
+
+.sf-help svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sf-help:hover {
+  border-color: var(--sf-teal);
+}
+
+.sf-ruo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 13px 12px;
+  border: 1px solid var(--sf-red-line);
+  background: var(--sf-red-bg);
+  border-radius: 10px;
+  font-size: 11px;
+  color: var(--sf-red);
+  text-align: center;
+}
+
+.sf-ruo svg {
+  width: 15px;
+  height: 15px;
+}
+
+.sf-error {
+  margin-top: 16px;
+  padding: 13px 15px;
+  border: 1px solid var(--sf-red-line);
+  background: var(--sf-red-bg);
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: var(--sf-red);
+}
+
+/* ------------------------------------------------------ payment-method modal */
+
+.sf-modal {
+  width: calc(100vw - 32px);
+  max-width: 408px;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--sf-line);
+  border-radius: 16px;
+  background: var(--sf-surface);
+  color: var(--sf-ink);
+  box-shadow: 0 24px 64px rgba(15, 23, 41, 0.24);
+}
+
+.sf-modal::backdrop {
+  background: rgba(15, 23, 41, 0.45);
+}
+
+.sf-modal-inner {
+  padding: 22px 22px 20px;
+}
+
+.sf-modal-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sf-modal-heading {
+  flex: 1;
+  min-width: 0;
+}
+
+.sf-modal-head h3 {
+  margin: 0;
+  font-size: 17.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sf-modal-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--sf-ink-soft);
+}
+
+.sf-modal-sub .amt {
+  font-family: var(--sf-mono), ui-monospace, Menlo, monospace;
+  color: var(--sf-ink);
+}
+
+.sf-modal-back,
+.sf-modal-close {
+  border: 0;
+  background: none;
+  padding: 5px;
+  border-radius: 7px;
+  color: var(--sf-ink-soft);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+}
+
+.sf-modal-back {
+  margin: -2px 0 0 -5px;
+  color: var(--sf-ink);
+}
+
+.sf-modal-close {
+  margin: -3px -5px 0 0;
+}
+
+.sf-modal-back svg,
+.sf-modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sf-modal-back:hover,
+.sf-modal-close:hover {
+  background: var(--sf-field);
+  color: var(--sf-ink);
+}
+
+.sf-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 9px;
+  background: var(--sf-red-bg);
+  border: 1px solid var(--sf-red-line);
+  color: var(--sf-red);
+  margin-top: 1px;
+}
+
+.sf-modal-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sf-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.sf-btn-ghost,
+.sf-btn-solid {
+  border-radius: 9px;
+  padding: 11px 16px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sf-btn-ghost {
+  border: 1px solid var(--sf-line);
+  background: var(--sf-surface);
+  color: var(--sf-ink);
+}
+
+.sf-btn-ghost:hover {
+  background: var(--sf-field);
+}
+
+.sf-btn-solid {
+  border: 1px solid var(--sf-navy);
+  background: var(--sf-navy);
+  color: #fff;
+}
+
+.sf-btn-solid:hover {
+  background: var(--sf-navy-deep);
+  border-color: var(--sf-navy-deep);
+}
+
+.sf-modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.sf-option {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 15px;
+  border: 1px solid var(--sf-line);
+  border-radius: 12px;
+  background: var(--sf-surface);
+  font: inherit;
+  color: var(--sf-ink);
+  cursor: pointer;
+}
+
+.sf-option > svg:first-child {
+  width: 21px;
+  height: 21px;
+  color: var(--sf-navy);
+}
+
+.sf-option-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.sf-option-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.sf-option-desc {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--sf-ink-soft);
+}
+
+.sf-option-chev {
+  width: 17px;
+  height: 17px;
+  color: #c2c7d1;
+}
+
+/* The one route that works is the one that looks like the way forward. */
+.sf-option.go {
+  border-color: #bfcdea;
+}
+
+.sf-option.go:hover {
+  border-color: var(--sf-navy);
+  background: #f7f9ff;
+}
+
+.sf-option.go:hover .sf-option-chev {
+  color: var(--sf-navy);
+}
+
+.sf-option:disabled {
+  cursor: not-allowed;
+  background: var(--sf-field);
+  color: #99a0ac;
+}
+
+.sf-option:disabled > svg:first-child,
+.sf-option:disabled .sf-option-desc,
+.sf-option:disabled .sf-option-chev {
+  color: #adb4c0;
+}
+
+.sf-option-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #e6e9ef;
+  color: #7c8494;
+}
+
+.sf-modal-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 20px 0 0;
+  padding: 14px 15px;
+  background: var(--sf-field);
+  border: 1px solid var(--sf-line-soft);
+  border-radius: 11px;
+  font-size: 13.5px;
+  color: var(--sf-ink-soft);
+}
+
+.sf-modal-note svg {
+  width: 18px;
+  height: 18px;
+  color: var(--sf-navy);
+  margin-top: 1px;
+}
+
+/* ----------------------------------------------------------------- footer */
+
+.sf-footer {
+  border-top: 1px solid var(--sf-line);
+  background: var(--sf-bg);
+}
+
+.sf-footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 26px 40px 34px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--sf-ink-soft);
+}
+
+.sf-footer-inner svg {
+  width: 19px;
+  height: 19px;
+  color: #7c8494;
+  margin-top: 1px;
+}
