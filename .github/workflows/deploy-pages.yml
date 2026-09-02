@@ -1,0 +1,58 @@
+name: Deploy storefront to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a newer push supersede a run that is still going, but never cancel a
+# deployment half-way through.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # A static export cannot contain route handlers or dynamically rendered
+      # pages. These routes need a Node server, so they are dropped from *this
+      # checkout* — the repo keeps them, and `npm run dev` still serves them.
+      - name: Drop server-only routes
+        run: rm -rf src/app/api src/app/pay src/app/complete src/app/mock src/app/dev
+
+      - name: Build static site
+        env:
+          BUILD_STATIC: "true"
+          # Project Pages are served from /<repo>. Set this to "" if you move
+          # the site to a custom domain or a <user>.github.io repo.
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

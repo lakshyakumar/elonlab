@@ -1,10 +1,20 @@
-import { redirect } from "next/navigation";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 /**
- * Any unmatched path lands on the home page rather than a 404 screen. Note the
- * response is a 307 to `/`, not a 404 — crawlers and monitoring will see a
- * redirect for every mistyped URL.
+ * Unmatched paths land on the home page. The redirect runs on the client rather
+ * than as a 307, because the static export has no server to issue one — Pages
+ * serves this as `404.html` and the router takes over from there. `replace`
+ * keeps the bad URL out of the back-button history, and is basePath-aware.
  */
 export default function NotFound() {
-  redirect("/");
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/");
+  }, [router]);
+
+  return null;
 }
