@@ -12,6 +12,7 @@ import {
   Globe,
   LogIn,
   LogOut,
+  Menu,
   ShieldCheck,
   User,
 } from "./icons";
@@ -53,6 +54,11 @@ export default function ShippingPage() {
 
       <header className="sf-header">
         <div className="sf-header-inner">
+          {/* Stands in for the nav once the links no longer fit. */}
+          <span className="sf-burger" aria-label="Menu">
+            <Menu />
+          </span>
+
           <span className="sf-brand">
             <BrandMark className="sf-brand-mark" />
             <span className="sf-wordmark">ECHELON LABS</span>

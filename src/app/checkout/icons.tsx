@@ -137,6 +137,16 @@ export function CreditCard({ className }: IconProps) {
   );
 }
 
+export function Menu({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 6h16" />
+      <path d="M4 12h16" />
+      <path d="M4 18h16" />
+    </svg>
+  );
+}
+
 export function Coins({ className }: IconProps) {
   return (
     <svg {...base} className={className}>
